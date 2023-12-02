@@ -1,4 +1,5 @@
 mod day1;
+mod day2;
 
 use std::fmt::{Display, Formatter};
 use std::io;
@@ -32,6 +33,9 @@ fn main() -> anyhow::Result<()> {
     match day_nr {
         1 => {
             day1::main(part);
+        }
+        2 => {
+            day2::main(part)
         }
         _ => {
             println!("Failed to found day nr.  {}", day_nr);
