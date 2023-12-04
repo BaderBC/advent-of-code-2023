@@ -1,7 +1,7 @@
 use std::collections::HashMap;
-use crate::Part;
+use crate::{Part, PartResult};
 
-pub fn main(part: Part) {
+pub fn main(part: Part) -> PartResult {
     let plain_input = include_str!("../assets/day3-input");
     let lines: Vec<&str> = plain_input.split('\n').collect();
 
@@ -41,8 +41,7 @@ pub fn main(part: Part) {
     }
 
     if let Part::FIRST = part {
-        println!("result of first part day 3 is: {}", sum_result);
-        return;
+        return PartResult::FIRST(sum_result as isize);
     }
 
     let mut gear_ratios_sum = 0;
@@ -60,7 +59,7 @@ pub fn main(part: Part) {
         gear_ratios_sum += multiplied;
     }
 
-    println!("result of second part day 3 is: {}", gear_ratios_sum);
+    PartResult::SECOND(gear_ratios_sum as isize)
 }
 
 // 2nd arg is is '*' location

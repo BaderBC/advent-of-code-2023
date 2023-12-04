@@ -1,6 +1,7 @@
 mod day1;
 mod day2;
 mod day3;
+mod day4;
 
 use std::fmt::{Display, Formatter};
 use std::io;
@@ -31,9 +32,9 @@ fn main() -> anyhow::Result<()> {
         }
     };
 
-    match day_nr {
+    let result = match day_nr {
         1 => {
-            day1::main(part);
+            day1::main(part)
         }
         2 => {
             day2::main(part)
@@ -41,11 +42,16 @@ fn main() -> anyhow::Result<()> {
         3 => {
             day3::main(part)
         }
+        4 => {
+            day4::main(part)
+        }
         _ => {
             println!("Failed to found day nr.  {}", day_nr);
             exit(1)
         }
-    }
+    };
+
+    println!("Day {} {}", day_nr, result);
 
     Ok(())
 }
@@ -55,11 +61,16 @@ pub enum Part {
     SECOND,
 }
 
-impl Display for Part {
+pub enum PartResult {
+    FIRST(isize),
+    SECOND(isize),
+}
+
+impl Display for PartResult {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         match self {
-            Self::FIRST => write!(f, "first"),
-            Self::SECOND => write!(f, "second"),
+            Self::FIRST(v) => write!(f, "first part result is: {}", v),
+            Self::SECOND(v) => write!(f, "second part result is: {}", v),
         }
     }
 }

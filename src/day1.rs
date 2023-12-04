@@ -1,7 +1,7 @@
 use std::collections::HashMap;
-use crate::Part;
+use crate::{Part, PartResult};
 
-pub fn main(part: Part) {
+pub fn main(part: Part) -> PartResult {
     let input = include_str!("../assets/day1-input");
 
     let word_digit_map = get_word_num_map();
@@ -15,8 +15,11 @@ pub fn main(part: Part) {
 
         results_sum += (first_num * 10 + second_num) as u32;
     }
-
-    println!("Day 1 {} part result is: {}", part, results_sum);
+    
+    match part {
+        Part::FIRST => PartResult::FIRST(results_sum as isize),
+        Part::SECOND => PartResult::SECOND(results_sum as isize)
+    }
 }
 
 fn find_first_num<'a>(line: &str, is_reversed: bool, word_digit_map: &HashMap<&'a str, u8>, part: &Part) -> u8 {

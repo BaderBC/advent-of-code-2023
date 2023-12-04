@@ -1,4 +1,4 @@
-use crate::Part;
+use crate::{Part, PartResult};
 
 #[derive(Debug)]
 struct RevealedCube {
@@ -53,7 +53,7 @@ fn compare_option_to_num(option: Option<u32>, num: u32) -> bool {
     }
 }
 
-pub fn main(part: Part) {
+pub fn main(part: Part) -> PartResult {
     _ = part;
 
     let input = include_str!("../assets/day2-input");
@@ -83,8 +83,8 @@ pub fn main(part: Part) {
     }
     
     match part {
-        Part::FIRST => println!("2 day first part result is: {}", game_ids_sum),
-        Part::SECOND => println!("2 day second part result is: {}", power_sum),
+        Part::FIRST => PartResult::FIRST(game_ids_sum as isize),
+        Part::SECOND => PartResult::SECOND(power_sum as isize),
     }
 }
 
