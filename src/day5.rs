@@ -40,12 +40,12 @@ pub fn main(part: Part) -> PartResult {
             let numbers: Vec<u64> = line.split(' ').map(parse).collect();
             let param1 = MapRange {
                 from: numbers[0],
-                to: numbers[0] + numbers[2] - 1,
+                _to: numbers[0] + numbers[2] - 1,
                 range: numbers[2],
             };
             let param2 = MapRange {
                 from: numbers[1],
-                to: numbers[1] + numbers[2] - 1,
+                _to: numbers[1] + numbers[2] - 1,
                 range: numbers[2],
             };
             entry.push((param2, param1));
@@ -116,7 +116,7 @@ fn parse(s: &str) -> u64 {
 
 struct MapRange {
     from: u64,
-    to: u64,
+    _to: u64,
     range: u64,
 }
 
