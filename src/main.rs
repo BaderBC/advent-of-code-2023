@@ -2,6 +2,7 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
 use std::fmt::{Display, Formatter};
 use std::io;
@@ -44,6 +45,9 @@ fn main() -> anyhow::Result<()> {
         }
         4 => {
             day4::main(part)
+        }
+        5 => {
+            day5::main(part)
         }
         _ => {
             println!("Failed to found day nr.  {}", day_nr);
