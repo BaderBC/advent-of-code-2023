@@ -3,11 +3,6 @@ use std::collections::HashMap;
 use crate::{Part, PartResult};
 
 pub fn main(part: Part) -> PartResult {
-    let input = "32T3K 765
-T55J5 684
-KK677 28
-KTJJT 220
-QQQJA 483";
     let input = include_str!("../assets/day7-input");
 
     let lines = input.split('\n').collect::<Vec<&str>>();
